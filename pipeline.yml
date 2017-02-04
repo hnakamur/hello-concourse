@@ -9,8 +9,9 @@ resources:
 - name: result
   type: git
   source:
-    uri: git@gist.github.com:e1fce0f90c3175ca2855164450915b7b.git
-    private_key: {{github-private-key}}
+    uri: https://gist.github.com/e1fce0f90c3175ca2855164450915b7b.git
+    username: {{github-username}}
+    password: {{github-password}}
     branch: master
 
 jobs:
