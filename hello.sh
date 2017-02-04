@@ -1,3 +1,2 @@
 #!/bin/bash
-find .
-#echo "Hello World form hello.sh"
+find . > out/result.log

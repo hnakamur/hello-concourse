@@ -1,0 +1,29 @@
+---
+# Resourceの定義
+resources:
+# Git Resourceの定義
+- name: hello
+  type: git
+  source:
+    uri: https://github.com/hnakamur/hello-concourse.git
+- name: result
+  type: git
+  source:
+    uri: git@gist.github.com:e1fce0f90c3175ca2855164450915b7b.git
+    private_key: {{github-private-key}}
+    branch: master
+
+jobs:
+- name: job-hello
+  public: true
+  plan:
+  - get: hello
+    trigger: true
+  - get: result
+  - task: run-hello
+    file: hello/hello.yml
+  - task: commit-log
+    file: hello/commit-log.yml
+  - put: result
+    params:
+      repository: updated-result

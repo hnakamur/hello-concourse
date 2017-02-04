@@ -6,5 +6,7 @@ image_resource:
     repository: getourneau/alpine-bash-git
 inputs:
   - name: hello
+outputs:
+  - name: out
 run:
   path: ./hello/hello.sh
